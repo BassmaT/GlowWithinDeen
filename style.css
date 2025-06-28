@@ -1,0 +1,269 @@
+/* 🌙 Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #F6F1E7;
+    font-family: 'Playfair Display', serif;
+    color: #66283F;
+    min-height: 100vh;
+  }
+  
+  /* 🌸 Navigation */
+  .navbar {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F6F1E7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo-img {
+    height: 50px;
+    width: auto;
+  }
+  
+  .nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #7a4e57;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #C8A5AB;
+  }
+  
+  /* 💖 Hero Text */
+  .hero-text {
+    max-width: 800px;
+    background-color: #C8A5AB;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 20px;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .hero-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #F6F1E7;
+  }
+  
+  .hero-text p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  /* 📝 Blogpost Einzelansicht */
+  .post-hero {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+  }
+  
+  .post-image {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+  
+  .blog-post {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    color: #66283F;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .blog-post h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #C8A5AB;
+  }
+  
+  .post-meta {
+    font-size: 0.9rem;
+    color: #7a4e57;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .blog-post blockquote {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #F6F1E7;
+    border-left: 4px solid #C8A5AB;
+    font-style: italic;
+    color: #7a4e57;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: 40px;
+    color: #C8A5AB;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* 📰 Blog Übersicht */
+  .blog-header {
+    text-align: center;
+    margin: 60px auto 30px;
+    color: #66283F;
+  }
+  
+  .blog-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #C8A5AB;
+  }
+  
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .blog-card {
+    background-color: #F6F1E7;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #66283F;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .blog-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  }
+  
+  .blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .blog-card-text {
+    padding: 20px;
+  }
+  
+  .blog-card-text h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #C8A5AB;
+  }
+  
+  .blog-card-text p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  .card-meta {
+    font-size: 0.85rem;
+    color: #7a4e57;
+  }
+  
+  /* ⏳ Coming Soon Seiten */
+  .coming-soon {
+    min-height: calc(100vh - 100px); /* Füllt die Seite unterhalb der Navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    color: #66283F;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  
+  .coming-soon h1 {
+    font-size: 2rem;
+    color: #C8A5AB;
+    margin-bottom: 10px;
+  }
+  
+  .clock-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.6; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .secret-admin-link {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #e8e1d7; /* fast wie der Hintergrund */
+    color: #e8e1d7; /* gleich wie Hintergrund – fast unsichtbar */
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    z-index: 999;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+  
+  /* beim Hover wird’s erkennbar */
+  .secret-admin-link:hover {
+    color: #66283F;
+    background-color: #f0eae1;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+  }
+  
+  input, button {
+    font-family: 'Playfair Display', serif;
+    padding: 10px 15px;
+    margin-top: 5px;
+    border: 1px solid #C8A5AB;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #66283F;
+  }
+  
+  button {
+    background-color: #C8A5AB;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #a77e89;
+  }
+  
+  

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog Post – GlowWithinDeen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="GlowWithinDeen_Logo.jpeg" alt="GlowWithinDeen Logo" class="logo-img">
+    </a>
+    <nav class="nav-links">
+      <a href="blog.html">Blog</a>
+      <a href="youtube.html">YouTube</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <main class="blog-post" id="postContainer">
+    <p>Loading post...</p>
+  </main>
+
+  <script>
+    const container = document.getElementById("postContainer");
+    const query = new URLSearchParams(window.location.search);
+    const index = query.get("index");
+
+    const posts = JSON.parse(localStorage.getItem("published")) || [];
+    const post = posts[index];
+
+    if (!post) {
+      container.innerHTML = "<p>Post not found!</p>";
+    } else {
+      container.innerHTML = `
+        <h1>${post.title}</h1>
+        <div class="post-meta">${post.date} • ${post.author}</div>
+        <div class="post-hero"><img class="post-image" src="${post.image}" /></div>
+        <p>${post.content.replace(/\n/g, "<br>")}</p>
+        <a class="back-link" href="blog.html">← Back to Blog</a>
+      `;
+    }
+  </script>
+</body>
+</html>

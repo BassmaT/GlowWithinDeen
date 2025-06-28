@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Drafts – GlowWithinDeen</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="GlowWithinDeen_Logo.jpeg" alt="GlowWithinDeen Logo" class="logo-img">
+    </a>
+    <nav class="nav-links">
+      <a href="blog.html">Blog</a>
+      <a href="youtube.html">YouTube</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <section class="blog-header">
+    <h1>🗂️ Drafts</h1>
+    <p>Admin only: Review your drafts here and publish when ready.</p>
+  </section>
+
+  <main class="blog-grid" id="draftsContainer">
+    <!-- Draft cards will be manually inserted here or via JS later -->
+  </main>
+  <script>
+    const container = document.getElementById("draftsContainer");
+    const drafts = JSON.parse(localStorage.getItem("drafts")) || [];
+  
+    if (drafts.length === 0) {
+      container.innerHTML = "<p style='text-align:center;'>No drafts available.</p>";
+    }
+  
+    drafts.forEach((draft, index) => {
+      const card = document.createElement("div");
+      card.className = "blog-card";
+      card.innerHTML = `
+        <img src="${draft.image}" alt="${draft.title}" />
+        <div class="blog-card-text">
+          <h2>${draft.title}</h2>
+          <p>${draft.subtitle}</p>
+          <span class="card-meta">${draft.date} • ${draft.author}</span>
+          <button class="publish-btn" data-index="${index}">📤 Publish</button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  
+    // Veröffentlichung
+    container.addEventListener("click", function (e) {
+      if (e.target.classList.contains("publish-btn")) {
+        const index = e.target.dataset.index;
+        const drafts = JSON.parse(localStorage.getItem("drafts")) || [];
+        const published = JSON.parse(localStorage.getItem("published")) || [];
+  
+        // Move to published
+        published.push(drafts[index]);
+        localStorage.setItem("published", JSON.stringify(published));
+  
+        // Remove from drafts
+        drafts.splice(index, 1);
+        localStorage.setItem("drafts", JSON.stringify(drafts));
+  
+        location.reload(); // neu laden
+      }
+    });
+  </script>
+  
+
+</body>
+</html>
